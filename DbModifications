@@ -1,0 +1,193 @@
+.12/27/2013
+
+ALTER TABLE  `task` CHANGE  `studyId`  `projectId` INT( 11 ) NULL DEFAULT NULL ;
+OK
+
+ALTER TABLE  `task` DROP FOREIGN KEY  `task_ibfk_1` ;
+OK
+
+
+ALTER TABLE  `task` ADD CONSTRAINT  `task_ibfk_1` FOREIGN KEY (  `projectId` ) REFERENCES  `omniscience`.`project` (
+`id`
+) ON DELETE CASCADE ON UPDATE RESTRICT ;
+
+Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`omniscience`.`#sql-f35_1f`, CONSTRAINT `task_ibfk_1` FOREIGN KEY (`projectId`) REFERENCES `project` (`id`) ON DELETE CASCADE)
+
+
+
+
+12/30/2013
+
+Queries to purge data from projects and tasks table and create new foreign key in task table. (run step wise)
+
+DELETE FROM  `project`
+"OK"
+
+DELETE FROM  `task`
+OK
+
+ALTER TABLE  `task` ADD CONSTRAINT  `task_ibfk_1` FOREIGN KEY (  `projectId` ) REFERENCES  `omniscience`.`project` (
+`id`
+) ON DELETE CASCADE ON UPDATE RESTRICT ;
+OK
+
+--
+01/12/2013 -- Kasun
+#CREATE TABLE `lab` (
+#  `id` int(11) NOT NULL AUTO_INCREMENT,
+#  `name` varchar(255) DEFAULT NULL,
+#  `created` datetime DEFAULT NULL,
+#  `modified` datetime DEFAULT NULL,
+#  PRIMARY KEY (`id`)
+#) ENGINE=InnoDB;
+KG comment- Error Code: 1050. Table 'lab' already exists
+Kasun comment - do not use this. (sorry, already available table)
+
+
+
+#CREATE TABLE `lab_user` (
+#  `labId` int(11) NOT NULL,
+#  `userId` int(11) NOT NULL,
+# `created` datetime NOT NULL,
+# `modified` datetime NOT NULL,
+#  PRIMARY KEY (`labId`,`userId`),
+# KEY `labUser_user_fk` (`userId`),
+#  CONSTRAINT `labUser_lab_fk` FOREIGN KEY (`labId`) REFERENCES `lab` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+#  CONSTRAINT `labUser_user_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+#) ENGINE=InnoDB;
+KG comment: Error Code: 1050. Table 'lab_user' already exists
+Kasun comment - do not use this. (sorry, already available table)
+
+CREATE TABLE `lab_user_other` (
+  `userId` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  KEY `lab_user_other_user_idx` (`userId`),
+  CONSTRAINT `lab_user_other_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+KG- OK
+
+
+
+CREATE TABLE `tech` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+KG-OK
+
+
+
+CREATE TABLE `tech_user` (
+  `techId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`techId`,`userId`),
+  KEY `fk_tech_user_user_id_idx` (`userId`),
+  CONSTRAINT `fk_tech_user_tech_id` FOREIGN KEY (`techId`) REFERENCES `tech` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_tech_user_user_id` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+KG: OK
+
+
+
+CREATE TABLE `tech_user_other` (
+  `userId` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  CONSTRAINT `tech_user_other_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+KG: OK
+
+ALTER TABLE `user` ADD `contactEmail` varchar(128);
+kg: ok
+-- Kasun
+
+-- #Start -- Do not use the following. Follow the next section to revert changes if you already have applied these --
+-- 01/07/2014 -- start -- Kasun
+#CREATE TABLE `user_position` (
+#  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+#  `name` varchar(45) NOT NULL,
+#  `created` datetime NOT NULL,
+#  `updated` datetime NOT NULL,
+#  PRIMARY KEY (`id`)
+#) ENGINE=InnoDB CHARSET=utf8;
+#kg: ok
+
+#INSERT INTO user_position (name) values ('PI'), ('Lab Tech'), ('Grad Student'), ('Post-Doc'), ('Undergrad');
+#kg Results:
+#5 row(s) affected, 2 warning(s): 1364 Field 'created' doesn't have a default value 1364 Field 'updated' doesn't have a default value Records: 5  Duplicates: 0  Warnings: 2
+
+#ALTER TABLE `user`
+#CHANGE COLUMN `position` `position` INT UNSIGNED NULL DEFAULT NULL ,
+#ADD INDEX `fk_user_position_idx` (`position` ASC);
+#kg Results:
+#115 row(s) affected, 22 warning(s): 1366 Incorrect integer value: '' for column 'position' at row 1 1366 Incorrect integer value: '' for column 'position' at row 3 1366 Incorrect integer value: '' for column 'position' at row 4 1366 Incorrect integer value: '' for column 'position' at row 6 1366 Incorrect integer value: 'Lab Manager' for column 'position' at row 8 1366 Incorrect integer value: 'Professor' for column 'position' at row 11 1366 Incorrect integer value: '' for column 'position' at row 22 1366 Incorrect integer value: 'I own this site. :)' for column 'position' at row 26 1366 Incorrect integer value: 'Postdoctoral Fellow' for column 'position' at row 30 1366 Incorrect integer value: '' for column 'position' at row 43 1366 Incorrect integer value: '' for column 'position' at row 50 1366 Incorrect integer value: '' for column 'position' at row 54 1366 Incorrect integer value: 'Graduate Student' for column 'position' at row 57 1366 Incorrect integer value: 'Professor' for column 'position' at row 59 1366 Incorrect integer value: '' for column 'position' at row 60 1366 Incorrect integer value: '' for column 'position' at row 65 1366 Incorrect integer value: 'Head peon' for column 'position' at row 66 1366 Incorrect integer value: 'Research Coordinator' for column 'position' at row 67 1366 Incorrect integer value: 'Assistant Professor of Computational Science' for column 'position' at row 70 1366 Incorrect integer value: '' for column 'position' at row 86 1366 Incorrect integer value: 'Laboratory Manager' for column 'position' at row 89 1366 Incorrect integer value: '' for column 'position' at row 93 Records: 115  Duplicates: 0  Warnings: 22
+
+#ALTER TABLE `user`
+#ADD CONSTRAINT `fk_user_position`
+#FOREIGN KEY (`position`)
+#  REFERENCES `user_position` (`id`)
+#ON DELETE CASCADE
+#  ON UPDATE CASCADE;
+#  kg: results
+#  Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`omniscience`.`#sql-4bb6_32`, CONSTRAINT `fk_user_position` FOREIGN KEY (`position`) REFERENCES `user_position` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+-- 01/07/2014 -- end -- Kasun
+
+
+
+
+-- 01/08/2014
+-- Start revert --
+-- Please note that if you haven't successfully applied above db changes then you will receive errors for the following.
+-- Ignore them wisely.
+ALTER TABLE `user`
+CHANGE COLUMN `position` `position` VARCHAR(138) NULL DEFAULT NULL ,
+DROP INDEX `fk_user_position_idx`,
+DROP FOREIGN KEY `fk_user_position`;
+DROP TABLE `user_position`;
+-- End revert
+-kg 1/8/14: Error Code: 1025. Error on rename of './omniscience/user' to './omniscience/#sql2-3e99-5bb' (errno: 152)
+
+
+-- Start new create --
+CREATE TABLE `position` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARSET=utf8;
+
+KG OK
+
+INSERT INTO position (name, created, modified) values
+('PI', '0000-00-00', '0000-00-00'),
+('Lab Tech', '0000-00-00', '0000-00-00'),
+('Grad Student', '0000-00-00', '0000-00-00'),
+('Post-Doc', '0000-00-00', '0000-00-00'),
+('Undergrad', '0000-00-00', '0000-00-00');
+KG: OK
+
+CREATE TABLE `user_position` (
+  `positionId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`positionId`, `userId`),
+  KEY `fk_user_pos_user` (`userId`),
+  CONSTRAINT `userPos_position_fk` FOREIGN KEY (`positionId`) REFERENCES `position` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `userPos_user_fk` FOREIGN KEY (`userId`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB CHARSET=utf8;
+Kg-ok
+
+-- End new create
+-- 01/08/2014

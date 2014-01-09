@@ -1,0 +1,715 @@
+/************************************************************************************
+RESET
+*************************************************************************************/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent
+}
+html, body, address, blockquote, div, dl, form, h1, h2, h3, h4, h5, h6, ol, p, pre, table, ul, dd, dt, li, tbody, td, tfoot, th, thead, tr, button, del, ins, map, object, a, abbr, acronym, b, bdo, big, br, cite, code, dfn, em, i, img, kbd, q, samp, small, span, strong, sub, sup, tt, var, legend, fieldset {
+	margin: 0;
+	padding: 0;
+}
+img, fieldset {
+	border: 0;
+}
+/* set image max width to 100% */
+img, object {
+	max-width: 100%;
+	outline: none;
+}
+/* set html5 elements to block */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ul li {
+	list-style-type: none;
+}
+@font-face {
+	font-family: "HelveticaNeueLT Pro";
+	src: url('/css/fonts/HelveticaNeueLTPro-HvCn_5.eot');
+	src: url('/css/fonts/HelveticaNeueLTPro-HvCn_5.eot?#iefix') format('embedded-opentype'), url('/css/fonts/HelveticaNeueLTPro-HvCn_5.woff') format('woff'), url('/css/fonts/HelveticaNeueLTPro-HvCn_5.ttf') format('truetype'), url('/fonts/HelveticaNeueLTPro-HvCn_5.svg#quartzregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+a {
+	color: #696e71;
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+	text-decoration: none
+}
+/************************************************************************************
+GENERAL STYLING
+*************************************************************************************/
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "HelveticaNeueLT Pro";
+    font-size: 100%;
+}
+.bodyNoBg {
+	background: none;
+}
+/* headings */
+h1, h2, h3, h4, h5, h6 {
+	color: #02426d;
+}
+h1 {
+	font-size: 36px;
+	font-weight: normal;
+}
+h2 {
+	font-size: 1.6em;
+}
+h3 {
+	font-size: 1.4em;
+}
+h4 {
+	font-size: 1.2em;
+}
+h5 {
+	font-size: 1.1em;
+}
+h6 {
+	font-size: 1em;
+}
+p {
+    font-family: 'Exo 2', sans-serif;
+}
+.clearfix:after {
+	/*content: ".";
+	display: block;*/
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: auto;
+}
+.clearfix {
+/*	display: inline-block;
+*/}
+html[xmlns] .clearfix {
+	display: block;
+}
+* html .clearfix {
+	height: 1%;
+}
+.wrapper {
+	margin: auto;
+	max-width: 1024px;
+	width: 98%;
+}
+.floatRt {
+	float: right !important;
+}
+.floatLft {
+	float: left !important;
+}
+.clearBoth {
+	clear: both !important;
+}
+.noBorder {
+	border: 0px !important;
+}
+.noMargin {
+	margin: 0px !important;
+}
+/*---------------Home Page----------*/
+.homePage1 {
+	width: 100%;
+	float: left;
+	background: url(/img/home/Backgroung1.jpg) top center repeat-x;
+}
+.homePage1Main {
+	width: 100%;
+	float: left;
+	background: url(/img/home/logo_gradient.png) top center no-repeat;
+}
+
+.logo {
+	float: left;
+	margin: 5% 0 0 0;
+	width:250px;
+	height:150px;
+}
+.logoRespo{
+	width:100%;
+	text-align:center;
+	display:none;
+	float:left;
+	}
+.homeRt {
+	width: 50%;
+	float: right;
+	margin: 9% 0;
+}
+.signIn {
+	float: left;
+	width: 100%;
+}
+.signIn > h3 {
+	float: left;
+	width: 100%;
+	background: #00acfd;
+	border-radius: 7px 7px 0 0;
+	-moz-border-radius: 7px 7px 0 0;
+	-ms-border-radius: 7px 7px 0 0;
+	-webkit-border-radius: 7px 7px 0 0;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 12px 0;
+        margin-bottom: 0px;
+}
+.signInMain {
+	background: #fff;
+	float: left;
+	width: 100%;
+	padding: 6% 8%;
+	border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	-ms-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+}
+.signInMain input[type="text"], .signInMain input[type="password"], .signUpMain input[type="text"], .signUpMain input[type="password"] {
+	float: left;
+	width: 96%;
+	background: #fff;
+	border: 1px solid #cccccc;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	box-shadow: inset 0 0 4px #e1e1e1;
+	padding: 10px 2%;
+	font-size: 15px;
+	color: #5a5a5a;
+	margin: 0 0 15px 0;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+.signInMain label {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13px;
+	color: #999999;
+}
+.signInMain input[type="submit"], .signUpMain input[type="submit"] {
+	float: right;
+	background: #00acfd;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 0px;
+	font-size: 20px;
+	color: #fff;
+	font-family: "HelveticaNeueLT Pro";
+	padding: 7px 20px 2px 20px;
+	clear: both;
+	margin: 10px 0 0 0;
+	cursor: pointer;
+}
+.newsletter-holder input[type="submit"]{
+    float: left;
+    background: #00acfd;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 0px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "HelveticaNeueLT Pro";
+    padding: 7px 20px 2px 20px;
+    margin: 5px 0 0 0;
+    cursor: pointer;
+
+}
+.newsletter-holder{
+    display: block;
+}
+.signUp {
+	background: #00e700;
+	width: 100%;
+	float: left;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-ms-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	box-shadow: 0 2px 3px #666;
+	-moz-box-shadow: 0 2px 3px #666;
+	-ms-box-shadow: 0 2px 3px #666;
+	-webkit-box-shadow: 0 2px 3px #666;
+}
+.signUp > h3 {
+	float: left;
+	width: 100%;
+	color: #fff;
+	font-size: 26px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 15px 0 8px 0;
+}
+.signUpMain {
+	width: 84%;
+	float: left;
+    padding: 0 0 2% 16%;
+}
+.signUpMain .errorMessage, .signInMain .errorMessage {
+    font-size: 17px;
+}
+.signUpMain input[type="submit"] {
+	margin: 0px !important;
+}
+.page2 {
+	width: 100%;
+	float: left;
+	background: #fff;
+	padding: 5px 0 25px 0;
+}
+.page2Main h1 {
+	float: left;
+	text-align: center;
+	font-family: "HelveticaNeueLT Pro";
+	color: #0099cc;
+	text-transform: uppercase;
+    font-size: 6em;
+	width: 100%;
+	margin: 23px 0 7px 0;
+}
+.page2Main h3 {
+	float: left;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+	color: #000;
+	font-size: 24px;
+	width: 100%;
+	font-weight: normal;
+}
+.homeBoxMain {
+	float: left;
+	width: 100%;
+	margin: 1.5% 0 0 0;
+}
+.homeBox {
+	width: 32%;
+	float: left;
+	margin: 0 2% 0 0;
+	background: #f3f3f3; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YzZjNmMyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #f3f3f3 0%, #ffffff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f3f3f3), color-stop(100%, #ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f3f3f3 0%, #ffffff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f3f3f3 0%, #ffffff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f3f3f3 0%, #ffffff 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #f3f3f3 0%, #ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f3f3', endColorstr='#ffffff', GradientType=0 ); /* IE6-8 */
+	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-ms-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	text-align: center;
+}
+.homeBoxLst {
+	margin: 0 0 0 0;
+}
+.homeBox > img {
+	margin: 3% 0;
+}
+.homeBox > h3 {
+	font-size: 20px;
+	color: #666666;
+	font-family: "HelveticaNeueLT Pro";
+	text-transform: uppercase;
+}
+.homeBox p {
+	font-size: 15px;
+	color: #000;
+	margin: 5px 0 15px 0;
+	float: left;
+	text-align: center;
+	float:left;
+	width:100%;
+}
+
+.page3 {
+	width: 100%;
+	float: left;
+	background: url(/img/home/Backgroung3.jpg) top center repeat-x;
+}
+.page3Main {
+	width: 100%;
+	float: left;
+	padding: 1% 0;
+}
+.page3MainLft {
+	width: 60%;
+	float: left;
+}
+.page3MainRt {
+	width: 38%;
+	float: right;
+	background: #fbeaf5;
+	opacity: 0.9;
+}
+.page3MainRtMain {
+	width: 90%;
+	padding: 4% 5%;
+	float: left;
+	opacity: 1.0;
+	min-height: 300px;
+}
+.page3MainRtMain h3 {
+	font-size: 46px;
+
+	text-transform: uppercase;
+	width: 100%;
+	text-align: center;
+	color: #000;
+	font-family: "HelveticaNeueLT Pro";
+}
+.page3MainRtMain p {
+	font-size: 14px;
+	color: #000;
+	margin: 5px 0 8px 0;
+	float: left;
+	text-align: left;
+}
+.page4 {
+	float: left;
+	width: 100%;
+}
+.page4Main {
+	width: 100%;
+	float: left;
+	padding: 0 0 5% 0;
+}
+.page4Main h2 {
+	float: left;
+	text-align: center;
+	font-family: "HelveticaNeueLT Pro";
+	color: #999999;
+	text-transform: uppercase;
+	font-size: 55px;
+	width: 100%;
+	margin: 23px 0 7px 0;
+}
+.page4Main h3 {
+	float: left;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+	color: #000;
+	font-size: 24px;
+	width: 100%;
+	font-weight: normal;
+}
+.page4MainLft {
+	width: 49%;
+	float: left;
+	position: relative;
+}
+.page4MainRt {
+	float: right;
+	width: 49%;
+	position: relative;
+}
+.aboutSmLft {
+	position: absolute;
+	top: 60px;
+	left: 0;
+}
+.aboutSmRt {
+	position: absolute;
+	top: 60px;
+	right: 0;
+}
+.aboutSmLft a {
+	clear: both;
+	float: left;
+	margin: 0 0 5px 0;
+}
+.aboutSmRt a {
+	clear: both;
+	float: left;
+	margin: 0 0 5px 0;
+}
+.page4MainLft > h3, .page4MainRt > h3 {
+	font-family: "HelveticaNeueLT Pro";
+	color: #ff9933;
+	font-size: 42px;
+	float: left;
+	width: 100%;
+	text-align: center;
+	z-index: 111;
+	position: relative;
+	margin: -6% 0 0 0;
+}
+.page4MainLft > p, .page4MainRt > p {
+	float: left;
+	width: 100%;
+	font-size: 17px;
+	line-height: 21px;
+}
+.contact {
+	width: 100%;
+	float: left;
+	background: url(/img/home/Backgroung5.jpg) repeat-x top center;
+}
+.contactMain {
+	width: 100%;
+	float: left;
+	padding: 5% 0;
+}
+.contactMainHead {
+	width: 100%;
+	float: left;
+	background: #fff;
+	opacity: 0.9;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    box-shadow: 0 2px 3px #666;
+    -moz-box-shadow: 0 2px 3px #666;
+    -ms-box-shadow: 0 2px 3px #666;
+    -webkit-box-shadow: 0 2px 3px #666;
+}
+.contactMainHeadBox {
+	float: left;
+	width: 100%;
+	opacity: 1.0;
+	padding: 3% 0;
+}
+.contactMainHeadBox h2 {
+	float: left;
+	text-align: center;
+	font-family: "HelveticaNeueLT Pro";
+	color: #000;
+	text-transform: uppercase;
+	font-size: 55px;
+	width: 100%;
+	margin: 0 0 7px 0;
+}
+.contactMainHeadBox h3 {
+	float: left;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+	color: #000;
+	font-size: 16px;
+	width: 100%;
+	font-weight: normal;
+}
+.contactForm {
+	width: 100%;
+	float: left;
+	background: url(/img/home/contactBg.png) repeat;
+	margin: 2% 0 0 0;
+}
+.contactFormMain {
+	width: 92%;
+	float: left;
+	padding: 4%;
+}
+.contactFormMainLft {
+	width: 49%;
+	float: left;
+}
+.contactFormMainLft input[type="text"] {
+	width: 98%;
+	float: left;
+	background: #333333;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: #666666 1px solid;
+	color: #999999;
+	float: left;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 15px;
+    margin: 0 0 15px;
+    padding: 10px 2%;
+    text-transform: uppercase;
+    width: 96%;
+}
+.contactFormMainRt {
+	width: 49%;
+	float: right;
+}
+.contactFormMainRt textarea {
+	width: 98%;
+	float: left;
+	background: #333333;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: #666666 1px solid;
+	font-size: 18px;
+	color: #999999;
+	font-weight: normal;
+	padding: 5px 1%;
+	margin: 0 0 1% 0;
+	font-family: Tahoma, Geneva, sans-serifa;
+	height: 175px;
+}
+.contactFormMainRt input[type="submit"]{
+	float: right;
+	background: #00acfd;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 0px;
+	font-size: 20px;
+	color: #fff;
+	font-family: "HelveticaNeueLT Pro";
+	padding: 7px 20px 2px 20px;
+	clear: both;
+	margin: 10px 0 0 0;
+	cursor: pointer;
+	}
+
+.homelinks
+{
+text-align:center;
+padding:10px 0px;
+
+}
+.homelinks a:hover
+{
+text-decoration:underline;
+}
+.homelinks a 
+{
+padding:6px;
+color:#0099CC;
+font-size: 20px;
+}
+.facebook-class {
+    background: url("facebook-icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    padding: 17px;
+	margin-top: -5px;
+}
+.twitter-class {
+    background: url("twitter-icon.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    padding: 17px;
+	margin-top: -5px;
+}
+.middle-content
+{
+vertical-align:top;
+}
+/**addition by arvind **/
+.errorMessage{color:#B94A48;}
+.error{border-color: #B94A48 !important;}
+#forgot-popup{display: none;}
+#forgot-modal .modal-footer {border-top: none;}
+#forgot-modal .modal-header {border-bottom: none;}
+
+.btn-signup{
+    background-color: #5CB85C;
+    border-color: #4CAE4C;
+    color: #FFFFFF;
+    float: left;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 0px;
+    font-size: 20px;
+    color: #fff;
+    font-family: "HelveticaNeueLT Pro";
+    padding: 7px 20px 2px 20px;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+    line-height: normal;
+    text-decoration: none !important;
+}
+a.btn-signup:hover{
+    color: #FFFFFF !important;
+}
+.btn-submit
+{
+    margin-left:212px !important;
+    margin-right:7px !important;
+
+    float: left !important;
+}
+#signup-dialog .modal-header {
+    background-color: #428BCA;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: bolder;
+}
+.form-label
+{
+     padding-left: 25px;
+    padding-top: 9px;
+    vertical-align: top !important;
+}
+
+.select-btn
+{
+    width: 200px; margin-bottom: 7px; height: 39px; padding: 10px;background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 7px;
+    box-shadow: 0 0 4px #E1E1E1 inset;
+    color: #5A5A5A;
+}
+
+.msg
+{
+    color: #00C600;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+}
+.labelclass2
+{
+    color: #4B0082;
+    
+    font-family: arial;
+    font-size: 10px;
+    
+}
+#blocker,#blocker2,#blocker3
+{
+    font-size: 19px;
+    letter-spacing: 6px;
+    padding: 10px 38px 10px 33px;
+}
+.signUp h3.newsletter-head{
+    color: #FFFFFF;
+<<<<<<< HEAD
+=======
+}
+.signUpMain #NewsletterForm_email{
+    float: left;
+}
+.video-head{
+    text-align: center;
+    background-color: #E0B8E0;
+    color: #563A94;
+    font-family: "HelveticaNeueLT Pro";
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    box-shadow: 0 2px 3px #666;
+    -moz-box-shadow: 0 2px 3px #666;
+    -ms-box-shadow: 0 2px 3px #666;
+    -webkit-box-shadow: 0 2px 3px #666;
+}
+.video-head h2{
+    font-size: 27px;
+    font-weight: bold;
+    padding: 5px;
+>>>>>>> 73dedeb4ddbce26ef91f149df2089c7e6cdb9ea8
+}
